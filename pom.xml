@@ -6,6 +6,12 @@
     <groupId>code-smell</groupId>
     <artifactId>code-smell</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+           <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<jdk.version>1.8</jdk.version>
+		<junit.version>4.12</junit.version>
+	</properties>
     <dependencies>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -35,4 +41,20 @@
             <type>jar</type>
         </dependency>
     </dependencies>
+         <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<compilerArgs>
+						<arg>-parameters</arg>
+					</compilerArgs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
