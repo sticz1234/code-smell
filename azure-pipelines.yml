@@ -10,6 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sticz123'
+    organization: 'sticz123'
+    scannerMode: 'Other'
+- task: SonarCloudAnalyze@1
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -20,3 +26,9 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+    sonarQubeRunAnalysis: true
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sqMavenPluginVersionChoice: 'latest'
+    checkStyleRunAnalysis: true
