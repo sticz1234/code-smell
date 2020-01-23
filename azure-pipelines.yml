@@ -21,7 +21,7 @@ steps:
 - task: codecoveragecomparerbt@1
   inputs:
     codecoveragetarget: '85'
-    codecoveragemeasurementmethod: 'Lines'
+    codecoveragemeasurementmethod: 'Line'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
