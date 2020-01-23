@@ -17,6 +17,9 @@ steps:
     organization: 'sticz123'
     scannerMode: 'Other'
 - task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: codecoveragecomparerbt@1
   inputs:
     codecoveragetarget: '85'
