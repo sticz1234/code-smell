@@ -11,19 +11,17 @@ public class CustomerReport {
 
     private final Customer customer;
     private final Account account;
-    private static final  String  Acc = "Account: IBAN:";
+    private static final String IBAN = "Account: IBAN: ";
 
     public CustomerReport(@Nonnull final Customer customer, @Nonnull final Account account) {
         this.customer = checkNotNull(customer);
         this.account = checkNotNull(account);
     }
 
-
-
     public String printCustomerDaysOverdrawn() {
         String fullName = customer.getFullName();
 
-        String accountDescription = Acc + account.getIban() + ", Days Overdrawn: "
+        String accountDescription = IBAN + account.getIban() + ", Days Overdrawn: "
                 + account.getDaysOverdrawn();
         return fullName + accountDescription;
     }
@@ -31,12 +29,12 @@ public class CustomerReport {
     public String printCustomerMoney() {
         String fullName = customer.getFullName();
         String accountDescription = "";
-        accountDescription += Acc + account.getIban() + ", Money: " + account.getMoneyAmount();
+        accountDescription += IBAN + account.getIban() + ", Money: " + account.getMoneyAmount();
         return fullName + accountDescription;
     }
 
     public String printCustomerAccount() {
-        return Acc + account.getIban() + ", Money: " + account.getMoneyAmount() + ", Account type: "
+        return IBAN + account.getIban() + ", Money: " + account.getMoneyAmount() + ", Account type: "
                 + account.getType();
     }
 
