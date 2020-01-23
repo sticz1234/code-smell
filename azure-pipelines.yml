@@ -1,8 +1,5 @@
 # Maven
-- task: codecoveragecomparerbt@1
-  inputs:
-    codecoveragetarget: '85'
-    codecoveragemeasurementmethod: 'Line'
+
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -20,6 +17,10 @@ steps:
     organization: 'sticz123'
     scannerMode: 'Other'
 - task: SonarCloudAnalyze@1
+- task: codecoveragecomparerbt@1
+  inputs:
+    codecoveragetarget: '85'
+    codecoveragemeasurementmethod: 'Lines'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
