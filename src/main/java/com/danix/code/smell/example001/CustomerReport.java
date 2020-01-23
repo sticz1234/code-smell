@@ -11,7 +11,7 @@ public class CustomerReport {
 
     private final Customer customer;
     private final Account account;
-    public String  Acc = "Account: IBAN:";
+    private static final  String  Acc = "Account: IBAN:";
 
     public CustomerReport(@Nonnull final Customer customer, @Nonnull final Account account) {
         this.customer = checkNotNull(customer);
