@@ -18,10 +18,6 @@ steps:
     scannerMode: 'Other'
 - task: SonarCloudAnalyze@1
 
-- task: codecoveragecomparerbt@1
-  inputs:
-    codecoveragetarget: '85'
-    codecoveragemeasurementmethod: 'Line'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -38,3 +34,8 @@ steps:
     effectivePomSkip: false
     sqMavenPluginVersionChoice: 'latest'
     checkStyleRunAnalysis: true
+    codeCoverageToolOption: 'JaCoCo'
+- task: codecoveragecomparerbt@1
+  inputs:
+    codecoveragetarget: '85'
+    codecoveragemeasurementmethod: 'Line'
